@@ -9,7 +9,7 @@ can pass in parts of the code like `cat file.c | ./comment`.
 
 ## How to use
 
-- You need to have at least version 0.11 of dte installed.
+- You need to have at least version 1.11 or above of dte installed.
 - Compile with `make` or `make all`.
 - Copy binaries to `~/.dte/rc/bin`.
 - Example for comment (but same can be done with others):
