@@ -36,8 +36,9 @@ Formats current buffer based on file extention.
 
 Currently supports:
 
-- Clang with `clang-format`
-- Golang with `go fmt`
+- Clang formatter for C files
+- Go fmt for Go files
+- Prettier for JSON, JS, HTML, CSS
 
 RC file configuration (~/.dte/rc)
 

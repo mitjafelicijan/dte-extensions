@@ -36,6 +36,15 @@ int main(int argc, char *argv[]) {
       system(command);
       free(command);
     }
+
+    // prettier formatter for html, js, css, json files.
+    if (strcmp(extension, "html") == 0 || strcmp(extension, "js") == 0 ||
+        strcmp(extension, "css") == 0 || strcmp(extension, "json") == 0) {
+      char *command = malloc(strlen(filename) + 17);
+      sprintf(command, "prettier --write %s", filename);
+      system(command);
+      free(command);
+    }
   }
 
   return 0;
