@@ -7,15 +7,39 @@ These extensions are **work in progress** so use at your own risk!
 This utilities can also be used without editor and as a CLI tool. You
 can pass in parts of the code like `cat file.c | ./comment`.
 
-## How to use
+You can check keybindings for the editor with `dte -K` and start
+pressing keys to see what the combination for rc file is.
+
+## How to Compile and Install
 
 - You need to have at least version 1.11 or above of dte installed.
 - Compile with `make` or `make all`.
-- Copy binaries to `~/.dte/bin`.
-- Example for comment (but same can be done with others):
-	- Then add aliases to your rc file (~/.dte/rc)
-  	  `alias comment 'exec -s -i line -o buffer -e errmsg ~/.dte/bin/comment'`
-	- Now you can use by envoking M-x and executing `comment` command.
-	- You can also bind it to key in you `~/.dte/rc` file. I have it set to 
-  	  alt and forward slash key which in my case looks like `bind C-_ comment;`
-    - To check for combination keys you can do `dte -K`.
+- Copy binaries to ~/.dte/bin with `make install`.
+
+*Code should compile with gcc, clang and tcc.*
+
+## Extensions
+
+### Comments
+
+Comments and uncomments a line or a selection. Currenly only works with
+`//` style of comments.
+
+RC file configuration (~/.dte/rc)
+
+- `alias comment 'exec -s -i line -o buffer -e errmsg ~/.dte/bin/comment';`
+- `bind C-_ comment;` (C-_ on my keyboard layout means Ctrl+forwardslash)
+
+### Formatting
+
+Formats current buffer based on file extention.
+
+Currently supports:
+
+- Clang with `clang-format`
+- Golang with `go fmt`
+
+RC file configuration (~/.dte/rc)
+
+- `alias format='save -f; exec -s -e errmsg ~/.dte/bin/format $FILE; reload';`
+- `bind M-f format;`
